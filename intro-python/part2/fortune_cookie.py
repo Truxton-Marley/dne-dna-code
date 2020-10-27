@@ -34,8 +34,16 @@ def create_fortune_cookie_message(how_many_lucky_numbers: int) -> str:
     # TODO: Create a fortune cookie message by calling generate_fortune() and
     # generate_lucky_numbers() and then composing and returning the fortune
     # cookie's message.
-
-    raise NotImplementedError()
+    fortune = generate_fortune()
+    #TODO for Trux: Refactor this? I bit long, ay? Handle a single num maybe?
+    lucky_numbers = ""
+    for index, num in enumerate(generate_lucky_numbers(how_many_lucky_numbers)):
+        lucky_numbers += str(num)
+        if index < (how_many_lucky_numbers-2):
+            lucky_numbers += ", "
+        elif index < (how_many_lucky_numbers-1):
+            lucky_numbers += " and "
+    return "Your lucky numbers are {}. Your fortune is \"{}\"".format(lucky_numbers, fortune)
 
 
 def main():
